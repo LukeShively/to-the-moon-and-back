@@ -7,7 +7,7 @@ public class NewScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Hello");
+        print("Hello world");
     }
 
     // Update is called once per frame
