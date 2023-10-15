@@ -27,14 +27,15 @@ public class DialogueAnimation : MonoBehaviour
         currentTypingSpeed = typingSpeed;
         if (dialogueLines.Length > 0)
         {
+            // start typing effect
             StartCoroutine(TypeDialogue(dialogueLines[currentElementIndex]));
         }
-
         _level1NpcController = level1NPC.GetComponent<Level1NPCController>();
     }
 
     private void Update()
     {
+        // allow for next dialogue line to be triggered
         if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
         {
             currentTypingSpeed = typingSpeed;
@@ -51,9 +52,9 @@ public class DialogueAnimation : MonoBehaviour
 
     private void NextDialogueElement()
     {
-        Debug.Log(currentElementIndex + " and " + dialogueLines.Length);
         if (currentElementIndex < dialogueLines.Length - 1)
         {
+            // keep going through dialogue lines
             currentElementIndex++;
             currentText = "";
             StartCoroutine(TypeDialogue(dialogueLines[currentElementIndex]));
@@ -70,6 +71,7 @@ public class DialogueAnimation : MonoBehaviour
         }
     }
 
+    // typing visual effect
     private IEnumerator TypeDialogue(string text)
     {
         isTyping = true;
@@ -83,7 +85,6 @@ public class DialogueAnimation : MonoBehaviour
 
             yield return new WaitForSeconds(1 / currentTypingSpeed);
         }
-
         isTyping = false;
     }
 }

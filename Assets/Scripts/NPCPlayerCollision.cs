@@ -14,12 +14,15 @@ public class NPCPlayerCollision : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        // if collided with the player
         if (other.gameObject.CompareTag("Player"))
         {
+            // if currently in initial state, then change to be talking to player
             if (_level1NpcController.state == Level1NPCController.AIStateMachine.DefaultWaypoint)
             {
                 _level1NpcController.TriggerPlayerTalkingDialogue();
             } 
+            // if currently in the state where moved to new puzzle waypoint (and the path is over - meaning the walk is complete)
             if (_level1NpcController.state == Level1NPCController.AIStateMachine.PuzzleWaypoint 
                 && (_level1NpcController.navMeshAgent.remainingDistance <= 0 && !_level1NpcController.navMeshAgent.pathPending))
             {

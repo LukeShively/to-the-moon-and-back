@@ -5,97 +5,106 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool movementEnabled = true;
-    
-    private Rigidbody rigidbody;
+    private Rigidbody _rigidbody;
     
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private Transform groundCheck;
-    private float groundCheckRadius = 0.3f;
-    private bool isGrounded;
+    private readonly float _groundCheckRadius = 0.3f;
+    private bool _isGrounded;
     
     [SerializeField] private float moveSpeed;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float jumpForce;
-    private bool isRunning;
+    private bool _isRunning;
+    private bool _movementEnabled = true;
     
-    private Vector3 currentDirection;
+    private Vector3 _currentDirection;
 
-    private bool hasLevel1Key;
+    private bool _hasLevel1Key;
 
     [SerializeField] private GameObject jumpBlocker;
     [SerializeField] private float jumpPadForce;
+
+    [SerializeField] private GameObject audioManager;
+    private AudioManager _audioManager;
     
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        movementEnabled = true;
+        _rigidbody = GetComponent<Rigidbody>();
+        _movementEnabled = true;
+        _audioManager = audioManager.GetComponent<AudioManager>();
     }
 
     void Update()
     {
-        if (movementEnabled)
+        if (_movementEnabled)
         {
-            currentDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+            _currentDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
             // use Physics to check for grounded (detection object under player)
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayerMask);
+            _isGrounded = Physics.CheckSphere(groundCheck.position, _groundCheckRadius, groundLayerMask);
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             {
                 // can jump
-                rigidbody.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
+                _rigidbody.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
             }
         }
     }
     
     void FixedUpdate()
     {
-        if (movementEnabled)
+        if (_movementEnabled)
         {
-            isRunning = currentDirection.magnitude > 0.1f;
+            _isRunning = _currentDirection.magnitude > 0.1f;
         
-            if (isRunning)
+            if (_isRunning)
             {
                 // move position of player
-                Vector3 direction = transform.forward * currentDirection.z;
-                rigidbody.MovePosition(rigidbody.position + direction * (moveSpeed * Time.fixedDeltaTime));
+                Vector3 direction = transform.forward * _currentDirection.z;
+                _rigidbody.MovePosition(_rigidbody.position + direction * (moveSpeed * Time.fixedDeltaTime));
             
                 // adjust rotation of character (based on new direction)
-                Quaternion rightDirection = Quaternion.Euler(0f, currentDirection.x * (turnSpeed * 100 * Time.fixedDeltaTime), 0f);
-                Quaternion newRotation = Quaternion.Slerp(rigidbody.rotation, rigidbody.rotation * rightDirection, Time.fixedDeltaTime);
-                rigidbody.MoveRotation(newRotation);
+                Quaternion rightDirection = Quaternion.Euler(0f, _currentDirection.x * (turnSpeed * 100 * Time.fixedDeltaTime), 0f);
+                Quaternion newRotation = Quaternion.Slerp(_rigidbody.rotation, _rigidbody.rotation * rightDirection, Time.fixedDeltaTime);
+                _rigidbody.MoveRotation(newRotation);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        #region Level1
         if (other.gameObject.CompareTag("Key1"))
         {
             Debug.Log("Got key!");
-            hasLevel1Key = true;
+            _audioManager.PlayLevel1KeyPickup();
+            _hasLevel1Key = true;
             // disable key
             other.gameObject.SetActive(false);
             // disable X object blocking jump pad
             jumpBlocker.SetActive(false);
         }
+        #endregion
 
         if (other.gameObject.CompareTag("JumpPad"))
         {
             // launch the player!
+            _audioManager.PlayBouncePad();
             Debug.Log("Up you go!");
-            rigidbody.AddForce(new Vector3(0f, jumpPadForce, 0f), ForceMode.Impulse);
+            _rigidbody.AddForce(new Vector3(0f, jumpPadForce, 0f), ForceMode.Impulse);
         }
     }
 
+    // Functions accessible to other scripts for the purpose of suspending player movement
+    //  (useful when the player is in dialogue)
     public void StopMovement()
     {
-        movementEnabled = false;
+        _movementEnabled = false;
     }
 
     public void StartMovement()
     {
-        movementEnabled = true;
+        _movementEnabled = true;
     }
 
 }

@@ -7,20 +7,20 @@ using UnityEngine.AI;
 public class Level1NPCController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
+    // TODO add animations
     // private Animator animator;
 
     public GameObject[] defaultWaypoints;
     public GameObject puzzleWaypoint;
     public int currWaypoint;
-    // public GameObject trackingIndicator;
     
     // AI state machine
     public enum AIStateMachine
     {
-        DefaultWaypoint,
-        PuzzleWaypoint,
-        TalkingToPlayer,
-        ExplainingToPlayer
+        DefaultWaypoint, // moving back and forth between 2 static waypoints
+        PuzzleWaypoint, // moving towards the waypoint located near the puzzle
+        TalkingToPlayer, // talking to the player initially
+        ExplainingToPlayer // explaining the puzzle to the player after moved towards the 'puzzle waypoint'
     }
     public AIStateMachine state;
 
@@ -63,18 +63,13 @@ public class Level1NPCController : MonoBehaviour
                 doneTalking = false;
                 _playerController.StartMovement();
                 helpingPlayer = true;
-                // TODO need to keep this state until end
+                // set speed, so can walk to new puzzle waypoint
                 navMeshAgent.speed = speedToPuzzle;
-                // if (navMeshAgent.remainingDistance <= 0f && !navMeshAgent.pathPending)
-                // {
-                //     state = AIStateMachine.ExplainingToPlayer;
-                // }
                 break;
             case AIStateMachine.DefaultWaypoint:
                 doneTalking = false;
                 _playerController.StartMovement();
-                // helpingPlayer = false;
-                // TODO check for transition to talking player state
+                // transition to talking (dialogue) if player has interacted with NPC
                 if (helpingPlayer)
                 {
                     state = AIStateMachine.TalkingToPlayer;
@@ -85,7 +80,7 @@ public class Level1NPCController : MonoBehaviour
                 helpingPlayer = true;
                 navMeshAgent.ResetPath();
                 navMeshAgent.speed = 0f;
-                // TODO check for transition to puzzle waypoint state
+                // transition to puzzle waypoint if dialogue has finished
                 if (doneTalking)
                 {
                     state = AIStateMachine.PuzzleWaypoint;
@@ -95,6 +90,7 @@ public class Level1NPCController : MonoBehaviour
                 _playerController.StopMovement();
                 helpingPlayer = true;
                 navMeshAgent.speed = 0f;
+                // allow the player to move again when dialogue is finished
                 if (doneTalking)
                 {
                     _playerController.StartMovement();
@@ -103,10 +99,6 @@ public class Level1NPCController : MonoBehaviour
             default:
                 break;
         }
-        
-        // // update position of tracking indicator object
-        // trackingIndicator.transform.position = new Vector3(navMeshAgent.destination.x,
-        //     trackingIndicator.transform.position.y, navMeshAgent.destination.z);
     }
 
     private void SetNextWaypoint()
@@ -120,6 +112,7 @@ public class Level1NPCController : MonoBehaviour
 
         if (helpingPlayer)
         {
+            // go to puzzle waypoint after interaction with player
             navMeshAgent.SetDestination(puzzleWaypoint.transform.position);
         }
         else
