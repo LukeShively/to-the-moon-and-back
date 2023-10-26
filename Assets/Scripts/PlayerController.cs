@@ -16,11 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField] private float jumpForce;
     private bool _isRunning;
+    private bool _groundedOverride;
     private bool _movementEnabled = true;
     
     private Vector3 _currentDirection;
 
     private bool _hasLevel1Key;
+
+    [SerializeField] public int coins = 0;
 
     [SerializeField] private GameObject jumpBlocker;
     [SerializeField] private float jumpPadForce;
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _movementEnabled = true;
+        _groundedOverride = false;
         _audioManager = audioManager.GetComponent<AudioManager>();
     }
 
@@ -42,11 +46,24 @@ public class PlayerController : MonoBehaviour
             _currentDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
             // use Physics to check for grounded (detection object under player)
             _isGrounded = Physics.CheckSphere(groundCheck.position, _groundCheckRadius, groundLayerMask);
+            if (_isGrounded) {
+                _groundedOverride = false;
+            }
 
-            if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && (_isGrounded || _groundedOverride))
             {
                 // can jump
-                _rigidbody.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
+                if (_groundedOverride) {
+                    //_rigidbody.AddForce(new Vector3(0f, jumpForce * 2, 0f), ForceMode.Impulse);
+                    Vector3 currVel = _rigidbody.velocity;
+                    _rigidbody.velocity = new Vector3(0f,0f,0f);
+                    _rigidbody.AddForce(new Vector3(currVel.x, 8, currVel.z), ForceMode.VelocityChange);
+                   
+                } else {
+                    _rigidbody.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
+                }
+                _isGrounded = false;
+                _groundedOverride = false;
             }
         }
     }
@@ -86,6 +103,23 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
+        #region Level4
+        if (other.gameObject.CompareTag("JumpRefresher"))
+        {
+            Debug.Log("touched refresher");
+            _audioManager.PlayLevel1KeyPickup();
+            _groundedOverride = true;
+            StartCoroutine(wait(other));
+        }
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("touched coin");
+            _audioManager.PlayLevel1KeyPickup();
+            other.gameObject.SetActive(false);
+            coins++;
+        }
+        #endregion        
+
         if (other.gameObject.CompareTag("JumpPad"))
         {
             // launch the player!
@@ -106,5 +140,13 @@ public class PlayerController : MonoBehaviour
     {
         _movementEnabled = true;
     }
+
+    IEnumerator wait(Collider other)
+    {
+        other.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3);
+        other.gameObject.SetActive(true);
+    }
+
 
 }
