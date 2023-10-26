@@ -7,6 +7,9 @@ TagManager:
   - Key1
   - JumpPad
   - Level1NPC
+  - JumpRefresher
+  - Level4NPC
+  - Coin
   layers:
   - Default
   - TransparentFX
