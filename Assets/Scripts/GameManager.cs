@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private bool wasPressed;
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            Debug.Log("Game quit.");
-            Application.Quit();
+            // Removed escape line because game can now be quit through menus
         }        
     }
 }
