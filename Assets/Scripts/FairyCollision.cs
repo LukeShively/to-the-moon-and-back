@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FairyCollision : MonoBehaviour
 {
-    private int state = 0;
     [SerializeField] private GameObject player;
+
     private PlayerController _playerController;
     private Level4NPCController _level4NpcController;
+    
+    public int state = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,8 @@ public class FairyCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (_playerController.coins == 5) {
-            state = 1;
+            state = 2;
+            _playerController.coins++;
         }
         // if collided with the player
         if (other.gameObject.CompareTag("Player"))
@@ -27,14 +30,14 @@ public class FairyCollision : MonoBehaviour
             // if currently in initial state, then change to be talking to player
             if (state == 0)
             {
-                _playerController.StopMovement();
-                _level4NpcController.TriggerFirstDialogue();
+               _level4NpcController.setState(0);
+               state = 1;
             } 
             // if currently in the state where moved to new puzzle waypoint (and the path is over - meaning the walk is complete)
-            if (state == 1)
+            if (state == 2)
             {
-                _playerController.StopMovement();
-                _level4NpcController.TriggerGivenCoinsDialogue();
+               _level4NpcController.setState(1);
+               state = 1; 
             }
         }
     }

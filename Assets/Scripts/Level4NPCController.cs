@@ -10,25 +10,79 @@ public class Level4NPCController : MonoBehaviour
     [SerializeField] private GameObject givenCoinsDialogue;
     //[SerializeField] private bool doneTalking;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject cloudKey;
+
     private PlayerController _playerController;
+    public int state = -1;
 
     // Start is called before the first frame update
     void Start()
     {
-    dialogueBoxPanel.SetActive(false);
-    firstDialogue.SetActive(false);
-    _playerController = player.gameObject.GetComponent<PlayerController>();    
+        doneTalking = false;
+        cloudKey.SetActive(false);
+        dialogueBoxPanel.SetActive(false);
+        firstDialogue.SetActive(false);
+        givenCoinsDialogue.SetActive(false);
+        _playerController = player.gameObject.GetComponent<PlayerController>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (doneTalking)
-            {
+        switch (state) {
+            case (0):
+                _playerController.StopMovement();
+                dialogueBoxPanel.SetActive(true);
+                firstDialogue.SetActive(true);
+                if (doneTalking) {
+                    _playerController.StartMovement();
+                    Debug.Log("wat");
+                    state = 3;
+                    //doneTalking = false;
+                }
+                break;
+            case (1):
+                _playerController.StopMovement();
+                dialogueBoxPanel.SetActive(true);
+                givenCoinsDialogue.SetActive(true);
+                if (doneTalking) {
+                    _playerController.StartMovement();
+                    Debug.Log("wat2");
+                    state = 3;
+                    //doneTalking = false;
+                    cloudKey.SetActive(true);
+                }
+                break;
+            default:
+                doneTalking = false;
+                break;
+        }
+        /*if (state == 0) {
+            
+            _playerController.StopMovement();
+            dialogueBoxPanel.SetActive(true);
+            firstDialogue.SetActive(true);
+            if (doneTalking) {
                 _playerController.StartMovement();
+                Debug.Log("wat");
+                state = 2;
             }
+        }
+        if (state == 1) {
+            _playerController.StopMovement();
+            dialogueBoxPanel.SetActive(true);
+            givenCoinsDialogue.SetActive(true);
+            if (doneTalking) {
+                _playerController.StartMovement();
+                Debug.Log("wat2");
+                state = 2;
+            }
+        }
+        */
+           
+
     }
-    public void TriggerFirstDialogue()
+    /*public void TriggerFirstDialogue()
     {
         // collided with player (from child object trigger)
         doneTalking = false;
@@ -46,8 +100,12 @@ public class Level4NPCController : MonoBehaviour
         dialogueBoxPanel.SetActive(true);
         givenCoinsDialogue.SetActive(true);
     }
+    */
     public void EndTalking()
     {
         doneTalking = true;
+    }
+    public void setState(int x) {
+        state = x;
     }
 }
