@@ -38,7 +38,8 @@ public class Level4NPCController : MonoBehaviour
                     _playerController.StartMovement();
                     Debug.Log("wat");
                     state = 3;
-                    //doneTalking = false;
+                    firstDialogue.SetActive(false);
+                    dialogueBoxPanel.SetActive(false);
                 }
                 break;
             case (1):
@@ -49,8 +50,9 @@ public class Level4NPCController : MonoBehaviour
                     _playerController.StartMovement();
                     Debug.Log("wat2");
                     state = 3;
-                    //doneTalking = false;
                     cloudKey.SetActive(true);
+                    givenCoinsDialogue.SetActive(false);
+                    dialogueBoxPanel.SetActive(false);
                 }
                 break;
             default:
