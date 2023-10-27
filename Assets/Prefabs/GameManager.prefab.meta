@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/GameManager.prefab.meta
-guid: 060ecf9a3e81dbd43a49b7d892137347
-========
-guid: f7f134fb4b876ed4db766d1c957038a7
->>>>>>>> 4395c0e (finished i think?):Assets/Prefabs/Levels/Level 4 (The Clouds).prefab.meta
+guid: 5c9608484b3c3d84a879975bbb7bf684
 PrefabImporter:
   externalObjects: {}
   userData: 
