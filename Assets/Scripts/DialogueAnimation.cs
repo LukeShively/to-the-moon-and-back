@@ -18,7 +18,6 @@ public class DialogueAnimation : MonoBehaviour
     [SerializeField] private GameObject level1NPC;
     private Level1NPCController _level1NpcController;
 
-
     private void Start()
     {
         dialogueText.SetText("");
@@ -64,7 +63,6 @@ public class DialogueAnimation : MonoBehaviour
         {
             // Handle the end of the dialogue
             _level1NpcController.EndTalking();
-
             Debug.Log("osjdlkfjsdlkfjklfsd");
             dialogueBoxPanel.SetActive(false);
             dialogueText.enabled = false;
