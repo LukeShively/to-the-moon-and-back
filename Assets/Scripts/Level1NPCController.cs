@@ -7,8 +7,7 @@ using UnityEngine.AI;
 public class Level1NPCController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
-    // TODO add animations
-    // private Animator animator;
+    private Animator _animator;
 
     public GameObject[] defaultWaypoints;
     public GameObject puzzleWaypoint;
@@ -36,7 +35,7 @@ public class Level1NPCController : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        // animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         currWaypoint = -1; // prepare for first waypoint
         SetNextWaypoint();
         state = AIStateMachine.DefaultWaypoint; // start with default waypoints
@@ -49,7 +48,7 @@ public class Level1NPCController : MonoBehaviour
     void Update()
     {
         // enable animation
-        // animator.SetFloat("vely", navMeshAgent.velocity.magnitude / navMeshAgent.speed);
+        _animator.SetFloat("speed", navMeshAgent.speed);
         
         if (navMeshAgent.remainingDistance <= 0f && !navMeshAgent.pathPending)
         {

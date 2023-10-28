@@ -9,6 +9,9 @@ TagManager:
   - Level1NPC
   - Level2NPC
   - Memory
+  - JumpRefresher
+  - Level4NPC
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - PostProcessing
   - 
   - 
   - 
