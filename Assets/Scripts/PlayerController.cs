@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    private Animator _animator;
     
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private Transform groundCheck;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         _movementEnabled = true;
         _audioManager = audioManager.GetComponent<AudioManager>();
     }
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        _animator.SetBool("isRunning", _isRunning);
         if (_movementEnabled)
         {
             _isRunning = _currentDirection.magnitude > 0.1f;
