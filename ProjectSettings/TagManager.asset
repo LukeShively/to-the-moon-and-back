@@ -7,6 +7,8 @@ TagManager:
   - Key1
   - JumpPad
   - Level1NPC
+  - Level2NPC
+  - Memory
   - JumpRefresher
   - Level4NPC
   - Coin
