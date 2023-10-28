@@ -22,7 +22,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _hasLevel1Key;
 
+    public int level2MemoryCount;
+    
+
     [SerializeField] private GameObject jumpBlocker;
+    [SerializeField] private GameObject jumpBlockerLevel2;
     [SerializeField] private float jumpPadForce;
 
     [SerializeField] private GameObject audioManager;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _movementEnabled = true;
         _audioManager = audioManager.GetComponent<AudioManager>();
+        level2MemoryCount = 0;
     }
 
     void Update()
@@ -83,6 +88,22 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             // disable X object blocking jump pad
             jumpBlocker.SetActive(false);
+        }
+        #endregion
+
+        #region Level2
+        if (other.gameObject.CompareTag("Memory"))
+        {
+            Debug.Log("Collected a memory");
+            // disable memory upon collection
+            other.gameObject.SetActive(false);
+            // update memory count
+            level2MemoryCount++;
+            // after collecting all memories, enable jump pad
+            if (level2MemoryCount == 5)
+            {
+                jumpBlockerLevel2.SetActive(false);
+            }
         }
         #endregion
 
