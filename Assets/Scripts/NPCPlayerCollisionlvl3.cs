@@ -16,11 +16,8 @@ public class NPCPlayerCollisionlvl3 : MonoBehaviour
         // if collided with the player
         if (other.gameObject.CompareTag("Player"))
         {
-            // if currently in initial state, then change to be talking to player
-            if (_level3NpcController.state == Level3NPCController.AIStateMachine.DefaultWaypoint)
-            {
-                _level3NpcController.TriggerPlayerTalkingDialogue();
-            } 
+            _level3NpcController.TriggerPlayerExplainingDialogue();
+            transform.gameObject.SetActive(false);
         }
     }
 }

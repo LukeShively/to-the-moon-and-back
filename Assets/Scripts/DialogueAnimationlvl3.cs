@@ -63,7 +63,7 @@ public class DialogueAnimationlvl3 : MonoBehaviour
         {
             // Handle the end of the dialogue
             _level3NpcController.EndTalking();
-            Debug.Log("osjdlkfjsdlkfjklfsd");
+            Debug.Log("Done Talking");
             dialogueBoxPanel.SetActive(false);
             dialogueText.enabled = false;
             gameObject.SetActive(false);

@@ -14,7 +14,7 @@ public class MemoryCountController : MonoBehaviour
     void Start()
 	{
         _playerController = player.gameObject.GetComponent<PlayerController>();
-        RemoveMemoryCountText();
+        SetupMemoryCountText();
         allMemoriesCollectedText.SetActive(false);
     }
 
@@ -34,6 +34,11 @@ public class MemoryCountController : MonoBehaviour
         }
     }
 
+    void SetupMemoryCountText()
+    {
+        memoryCountText.text = "Memories Collected: 0/5";
+    }
+    
     void RemoveMemoryCountText()
     {
         memoryCountText.text = "";
@@ -41,7 +46,7 @@ public class MemoryCountController : MonoBehaviour
 
     void SetMemoryCountText()
     {
-        memoryCountText.text = "Memories Collected: " + _playerController.level2MemoryCount.ToString();
+        memoryCountText.text = "Memories Collected: " + _playerController.level2MemoryCount + "/5";
     }
 
     //void AllMemoriesCollectedText()

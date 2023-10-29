@@ -32,6 +32,8 @@ public class Level1NPCController : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerController _playerController;
 
+    [SerializeField] private GameObject level1HintText;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -43,6 +45,7 @@ public class Level1NPCController : MonoBehaviour
         talkingDialogueTMP.SetActive(false);
         explainingDialogueTMP.SetActive(false);
         _playerController = player.gameObject.GetComponent<PlayerController>();
+        level1HintText.SetActive(false);
     }
 
     void Update()
@@ -149,5 +152,6 @@ public class Level1NPCController : MonoBehaviour
         state = AIStateMachine.ExplainingToPlayer;
         dialogueBoxPanel.SetActive(true);
         explainingDialogueTMP.SetActive(true);
+        level1HintText.SetActive(true);
     }
 }

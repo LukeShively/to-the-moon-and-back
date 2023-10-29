@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,10 @@ public class SpeedUp : MonoBehaviour
     
     void OnTriggerEnter(Collider c)
     {
-        if (c.GetComponent<Rigidbody>() != null) {
+        if (c.GetComponent<Rigidbody>() != null) 
+        {
             audioPlayer.Play();
-            c.GetComponent<Rigidbody>().AddRelativeForce(transform.forward*500, ForceMode.Impulse);
+            c.GetComponent<Rigidbody>().AddForce(c.transform.forward * 300, ForceMode.Impulse);
         }
     }
 }
