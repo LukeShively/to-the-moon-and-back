@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     private bool _isRunning;
     private bool _groundedOverride;
-    private bool _movementEnabled = true;
+    [SerializeField] private bool _movementEnabled = true;
     
     private Vector3 _currentDirection;
 
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private EndGameManager _endGameManager;
 
     [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private GameObject level4Help;
     
     void Start()
     {
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         level2TitleCard.SetActive(false);
         level3TitleCard.SetActive(false);
         level4TitleCard.SetActive(false);
+        level4Help.SetActive(false);
         _endGameManager = endGameManager.GetComponent<EndGameManager>();
     }
 
@@ -227,6 +229,7 @@ public class PlayerController : MonoBehaviour
         
         if (other.gameObject.CompareTag("Level4Ground"))
         {
+            level4Help.SetActive(true);
             level4TitleCard.SetActive(true);
         }
     }

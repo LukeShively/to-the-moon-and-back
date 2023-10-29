@@ -12,11 +12,13 @@ public class Level2NPCController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject level2HUDText;
     private PlayerController _playerController;
+    private bool _interacting;
     
 
     void Start()
     {
         doneTalking = true; // set to true (since haven't interacted with level yet)
+        _interacting = false; // use this to avoid keeping movement on in previous dialogues
         dialogueBoxPanel.SetActive(false);
         explainingDialogueTMP.SetActive(false);
         level2HUDText.SetActive(false);
@@ -29,7 +31,7 @@ public class Level2NPCController : MonoBehaviour
         {
             _playerController.StopMovement();
         }
-        else
+        else if (_interacting)
         {
             _playerController.StartMovement();
         }
@@ -48,5 +50,6 @@ public class Level2NPCController : MonoBehaviour
         doneTalking = false;
         dialogueBoxPanel.SetActive(true);
         explainingDialogueTMP.SetActive(true);
+        _interacting = false;
     }
 }

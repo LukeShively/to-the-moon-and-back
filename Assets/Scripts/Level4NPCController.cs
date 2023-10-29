@@ -15,6 +15,7 @@ public class Level4NPCController : MonoBehaviour
 
     private PlayerController _playerController;
     public int state = -1;
+    [SerializeField] private GameObject level4Help;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class Level4NPCController : MonoBehaviour
                     _playerController.StartMovement();
                     Debug.Log("wat2");
                     state = 3;
+                    level4Help.SetActive(false);
                     cloudKey.SetActive(true);
                     padBlock.SetActive(false);
                     givenCoinsDialogue.SetActive(false);

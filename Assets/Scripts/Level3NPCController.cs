@@ -11,11 +11,11 @@ public class Level3NPCController : MonoBehaviour
     [SerializeField] private bool doneTalking;
     [SerializeField] private GameObject player;
     private PlayerController _playerController;
-    private bool hasInteracted;
+    private bool _interacting;
 
     void Start()
     {
-        hasInteracted = false;
+        _interacting = false;
         doneTalking = true; // since hasn't been triggered yet
         dialogueBoxPanel.SetActive(false);
         talkingDialogueTMP.SetActive(false);
@@ -29,7 +29,7 @@ public class Level3NPCController : MonoBehaviour
         {
             _playerController.StopMovement();
         }
-        else if (hasInteracted)
+        else if (_interacting)
         {
             // since 2 NPCs, need to sure other NPC not overriding the StopMovement request of the first NPC
             _playerController.StartMovement();
@@ -44,7 +44,7 @@ public class Level3NPCController : MonoBehaviour
     public void TriggerPlayerExplainingDialogue()
     {
         // collided with player (from child object trigger)
-        hasInteracted = true;
+        _interacting = false;
         doneTalking = false;
         dialogueBoxPanel.SetActive(true);
         talkingDialogueTMP.SetActive(true);
