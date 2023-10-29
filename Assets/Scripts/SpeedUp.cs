@@ -12,7 +12,7 @@ public class SpeedUp : MonoBehaviour
         if (c.GetComponent<Rigidbody>() != null) 
         {
             audioPlayer.Play();
-            c.GetComponent<Rigidbody>().AddForce(transform.forward * 10, ForceMode.Impulse);
+            c.GetComponent<Rigidbody>().AddForce(c.transform.forward * 100, ForceMode.Impulse);
         }
         
         // if (c.GetComponent<Rigidbody>() != null)
