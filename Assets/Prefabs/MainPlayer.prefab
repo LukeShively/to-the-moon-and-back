@@ -184,7 +184,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632309258868767177}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -211,11 +211,13 @@ MonoBehaviour:
   moveSpeed: 6
   turnSpeed: 30
   jumpForce: 300
+  _movementEnabled: 1
   _hasLevel1Key: 0
   level2MemoryCount: 0
   coins: 0
   jumpBlocker: {fileID: 0}
   jumpBlockerLevel2: {fileID: 0}
+  jumpBlockerLevel4: {fileID: 0}
   jumpPadForce: 1500
   audioManager: {fileID: 0}
   level1TitleCard: {fileID: 0}
@@ -224,6 +226,10 @@ MonoBehaviour:
   level4TitleCard: {fileID: 0}
   endGameManager: {fileID: 0}
   spawnPoint: {fileID: 0}
+  level4Help: {fileID: 0}
+  level3CheatPosition: {fileID: 0}
+  level1HelpHUD: {fileID: 0}
+  level2HelpHUD: {fileID: 0}
 --- !u!1 &777790625014115289
 GameObject:
   m_ObjectHideFlags: 0

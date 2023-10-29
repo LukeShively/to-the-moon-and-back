@@ -96,7 +96,6 @@ public class Level1NPCController : MonoBehaviour
                 if (doneTalking)
                 {
                     _playerController.StartMovement();
-                    level1HintText.SetActive(true);
                 }
                 break;
             default:
@@ -153,5 +152,6 @@ public class Level1NPCController : MonoBehaviour
         state = AIStateMachine.ExplainingToPlayer;
         dialogueBoxPanel.SetActive(true);
         explainingDialogueTMP.SetActive(true);
+        level1HintText.SetActive(true);
     }
 }

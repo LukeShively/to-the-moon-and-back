@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 4839117792060035244}
   - component: {fileID: 1569455175649659606}
   m_Layer: 0
-  m_Name: Peasant Nolant Blue(Free Version)
+  m_Name: NPC Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,8 +3371,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2206167, y: 1, z: 1.2434027}
-  m_Center: {x: -0.06770009, y: 0, z: 0.011657158}
+  m_Size: {x: 1.2206167, y: 0.255476, z: 1.2434027}
+  m_Center: {x: -0.06770009, y: -0.372262, z: 0.011657137}
 --- !u!114 &8861710303902244670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,7 +3589,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8861710303982922442}
   - component: {fileID: 8861710303982922455}
-  - component: {fileID: 8861710303982922454}
   - component: {fileID: 8861710303982922443}
   - component: {fileID: 253282815}
   m_Layer: 0
@@ -3630,28 +3629,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &8861710303982922454
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8861710303982922452}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.5000001
-  m_Speed: 1.5
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &8861710303982922443
 MonoBehaviour:
   m_ObjectHideFlags: 0
