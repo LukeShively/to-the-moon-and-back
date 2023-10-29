@@ -11,6 +11,7 @@ public class Level4NPCController : MonoBehaviour
     //[SerializeField] private bool doneTalking;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cloudKey;
+    [SerializeField] private GameObject padBlock;
 
     private PlayerController _playerController;
     public int state = -1;
@@ -20,6 +21,7 @@ public class Level4NPCController : MonoBehaviour
     {
         doneTalking = false;
         cloudKey.SetActive(false);
+        padBlock.SetActive(true);
         dialogueBoxPanel.SetActive(false);
         firstDialogue.SetActive(false);
         givenCoinsDialogue.SetActive(false);
@@ -51,6 +53,7 @@ public class Level4NPCController : MonoBehaviour
                     Debug.Log("wat2");
                     state = 3;
                     cloudKey.SetActive(true);
+                    padBlock.SetActive(false);
                     givenCoinsDialogue.SetActive(false);
                     dialogueBoxPanel.SetActive(false);
                 }

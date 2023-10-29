@@ -18,6 +18,7 @@ public class Level2NPCCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _level2NpcController.TriggerPlayerExplainingDialogue();
+            transform.gameObject.SetActive(false);
         }
     }
 

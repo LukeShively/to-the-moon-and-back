@@ -6,39 +6,46 @@ using UnityEngine.AI;
 
 public class Level2NPCController : MonoBehaviour
 {
-    public NavMeshAgent navMeshAgent;
-    // TODO add animations
-    // private Animator animator;
-
     [SerializeField] private GameObject dialogueBoxPanel;
     [SerializeField] private GameObject explainingDialogueTMP;
     [SerializeField] private bool doneTalking;
     [SerializeField] private GameObject player;
-    //private PlayerController _playerController;
+    [SerializeField] private GameObject level2HUDText;
+    private PlayerController _playerController;
+    
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        // animator = GetComponent<Animator>();
+        doneTalking = true; // set to true (since haven't interacted with level yet)
         dialogueBoxPanel.SetActive(false);
         explainingDialogueTMP.SetActive(false);
-        //_playerController = player.gameObject.GetComponent<PlayerController>();
+        level2HUDText.SetActive(false);
+        _playerController = player.gameObject.GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        // enable animation
-        // animator.SetFloat("vely", navMeshAgent.velocity.magnitude / navMeshAgent.speed);
+        if (!doneTalking)
+        {
+            _playerController.StopMovement();
+        }
+        else
+        {
+            _playerController.StartMovement();
+        }
     }
 
     public void EndTalking()
     {
         doneTalking = true;
+        level2HUDText.SetActive(true);
+        
     }
 
     public void TriggerPlayerExplainingDialogue()
     {
         // collided with player (from child object trigger)
+        doneTalking = false;
         dialogueBoxPanel.SetActive(true);
         explainingDialogueTMP.SetActive(true);
     }

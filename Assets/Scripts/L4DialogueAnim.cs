@@ -65,7 +65,7 @@ public class L4DialogueAnim : MonoBehaviour
             // Handle the end of the dialogue
             _level4NpcController.EndTalking();
 
-            Debug.Log("osjdlkfjsdlkfjklfsd");
+            Debug.Log("Done Talking");
             dialogueBoxPanel.SetActive(false);
             dialogueText.enabled = false;
             gameObject.SetActive(false);

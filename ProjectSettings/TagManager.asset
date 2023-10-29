@@ -12,6 +12,11 @@ TagManager:
   - JumpRefresher
   - Level4NPC
   - Coin
+  - Level1Ground
+  - Level2Ground
+  - Level3Ground
+  - Level4Ground
+  - SafetyNet
   layers:
   - Default
   - TransparentFX
