@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1563312442, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563312442, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
     - target: {fileID: 4022901772956363730, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: m_Name
       value: Level 4 (The Clouds)
@@ -154,6 +162,10 @@ PrefabInstance:
       propertyPath: givenCoinsDialogue
       value: 
       objectReference: {fileID: 617749490}
+    - target: {fileID: 6430615478190196397, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
     - target: {fileID: 6430615478290834572, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: player
       value: 
@@ -374,7 +386,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2111048866}
           m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -454,7 +466,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2111048866}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: PressedSound
         m_Mode: 1
@@ -593,7 +605,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2111048866}
           m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -661,7 +673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2111048866}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: PressedSound
         m_Mode: 1
@@ -1055,7 +1067,7 @@ AudioSource:
   m_GameObject: {fileID: 387501013}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc350ed971523a441941153aea0d9043, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -1445,7 +1457,7 @@ AudioSource:
   m_GameObject: {fileID: 409864320}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc350ed971523a441941153aea0d9043, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -2487,7 +2499,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2111048866}
           m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -2555,7 +2567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2111048866}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: PressedSound
         m_Mode: 1
@@ -3522,7 +3534,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 2111048866}
           m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
           m_MethodName: HoverSound
           m_Mode: 1
@@ -3590,7 +3602,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2111048866}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: PressedSound
         m_Mode: 1
@@ -3780,6 +3792,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2971684076753647732, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
     - target: {fileID: 2971684076905340570, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -3796,6 +3812,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 703945225}
+    - target: {fileID: 2971684077181849572, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
     - target: {fileID: 2971684077287138813, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4239,7 +4259,7 @@ AudioSource:
   m_GameObject: {fileID: 1486584818}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc350ed971523a441941153aea0d9043, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -5524,7 +5544,7 @@ AudioSource:
   m_GameObject: {fileID: 1947219892}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc350ed971523a441941153aea0d9043, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -5869,6 +5889,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997786111}
   m_CullTransparentMesh: 1
+--- !u!1001 &2111048865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714090, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208735867545714092, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+--- !u!114 &2111048866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 208735867545714088, guid: 5c9608484b3c3d84a879975bbb7bf684, type: 3}
+  m_PrefabInstance: {fileID: 2111048865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe61cfd4f849884b8586a920e4ef276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2128523523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2128523523, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
