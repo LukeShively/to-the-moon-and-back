@@ -54,7 +54,7 @@ public class Level4NPCController : MonoBehaviour
                     Debug.Log("wat2");
                     state = 3;
                     level4Help.SetActive(false);
-                    cloudKey.SetActive(true);
+                    //cloudKey.SetActive(true);
                     padBlock.SetActive(false);
                     givenCoinsDialogue.SetActive(false);
                     dialogueBoxPanel.SetActive(false);

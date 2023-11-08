@@ -147,6 +147,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 703945225}
     - target: {fileID: 6430615477821153974, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: cloudKey
+      value: 
+      objectReference: {fileID: 349101812}
+    - target: {fileID: 6430615477821153974, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: level4Help
       value: 
       objectReference: {fileID: 1233076230}
@@ -162,6 +166,10 @@ PrefabInstance:
       propertyPath: givenCoinsDialogue
       value: 
       objectReference: {fileID: 617749490}
+    - target: {fileID: 6430615477914670777, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16
+      objectReference: {fileID: 0}
     - target: {fileID: 6430615478190196397, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -170,6 +178,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 703945225}
+    - target: {fileID: 6430615478659037132, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17
+      objectReference: {fileID: 0}
     - target: {fileID: 8519800196361959594, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -180,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8519800196361959594, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 72.35
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 8519800196361959594, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -803,6 +815,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &349101812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6430615478190196396, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+  m_PrefabInstance: {fileID: 6894467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387501013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1930,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 256064468987962221, guid: 761a8cd8d90ee7340b489e48bd8997d1, type: 3}
+      propertyPath: turnSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 256064468987962221, guid: 761a8cd8d90ee7340b489e48bd8997d1, type: 3}
       propertyPath: level4Help
       value: 
       objectReference: {fileID: 1233076230}
@@ -2931,7 +2952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8861710302642285138, guid: 4209bcb3f575848eaa133878bc0c3d82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8861710302642285138, guid: 4209bcb3f575848eaa133878bc0c3d82, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3742,7 +3763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2971684075858799103, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 2971684075858799103, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3775,6 +3796,10 @@ PrefabInstance:
     - target: {fileID: 2971684075858799103, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971684076153048092, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2971684076153048095, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_RootOrder
@@ -3816,6 +3841,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 6352e09ac3f304a4286431fcce42231f, type: 2}
+    - target: {fileID: 2971684077287138754, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2971684077287138813, guid: 4cd16b65f570a594d93ba7532f67a315, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6003,7 +6032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2590621540510190399, guid: 72b3877ed79252048b6146190b4811c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2590621540510190399, guid: 72b3877ed79252048b6146190b4811c9, type: 3}
       propertyPath: m_LocalPosition.z
