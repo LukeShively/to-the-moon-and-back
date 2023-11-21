@@ -1576,6 +1576,17 @@ PrefabInstance:
       propertyPath: dialogueBoxPanel
       value: 
       objectReference: {fileID: 1443098454}
+    - target: {fileID: 1031057290977317523, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
+      propertyPath: dialogueLines.Array.data[3]
+      value: 'Fairy: Hmm... I can send you there, but you''ll need to pay the toll.
+        Bring me five coins, I''ll get you there happily!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031057290977317523, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
+      propertyPath: dialogueLines.Array.data[4]
+      value: 'Fairy: Oh, and around here, you''ll also find that touching these blue
+        cubes will make you feel light as a feather. It''ll even let humans jump
+        on air! If you can''t find your way up, try grabbing some.'
+      objectReference: {fileID: 0}
     - target: {fileID: 1031057290977317548, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2036,6 +2047,10 @@ PrefabInstance:
     - target: {fileID: 632309258868767177, guid: 761a8cd8d90ee7340b489e48bd8997d1, type: 3}
       propertyPath: m_Name
       value: MainPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679776254289415325, guid: 761a8cd8d90ee7340b489e48bd8997d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000024707808
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761a8cd8d90ee7340b489e48bd8997d1, type: 3}
@@ -5205,6 +5220,11 @@ PrefabInstance:
       propertyPath: dialogueBoxPanel
       value: 
       objectReference: {fileID: 1443098454}
+    - target: {fileID: 390195510479670040, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: 'Fairy: Right then, you''ll find the key amongst the highest of the
+        clouds. May you find your journey''s end safely.'
+      objectReference: {fileID: 0}
     - target: {fileID: 390195510479670041, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
       propertyPath: m_Name
       value: L4_NPC_GivenCoinsDialogue
