@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 4 (The Clouds)
       objectReference: {fileID: 0}
+    - target: {fileID: 4480173521591368907, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6430615477821153974, guid: 5f49ce98310893944bd2d1a8963b1a08, type: 3}
       propertyPath: player
       value: 
@@ -5222,8 +5226,8 @@ PrefabInstance:
       objectReference: {fileID: 1443098454}
     - target: {fileID: 390195510479670040, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
       propertyPath: dialogueLines.Array.data[1]
-      value: 'Fairy: Right then, you''ll find the key amongst the highest of the
-        clouds. May you find your journey''s end safely.'
+      value: 'Fairy: Right then, you''ll find the path to the moon amongst the highest
+        of the clouds. May you find your journey''s end safely, traveler.'
       objectReference: {fileID: 0}
     - target: {fileID: 390195510479670041, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
       propertyPath: m_Name
