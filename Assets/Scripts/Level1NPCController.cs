@@ -46,6 +46,7 @@ public class Level1NPCController : MonoBehaviour
         explainingDialogueTMP.SetActive(false);
         _playerController = player.gameObject.GetComponent<PlayerController>();
         level1HintText.SetActive(false);
+        _animator.SetFloat("animSpeed", 1.0f);
     }
 
     void Update()
@@ -53,7 +54,7 @@ public class Level1NPCController : MonoBehaviour
         // enable animation
         _animator.SetFloat("speed", navMeshAgent.speed);
         
-        if (navMeshAgent.remainingDistance <= 0f && !navMeshAgent.pathPending)
+        if (navMeshAgent.remainingDistance <= 0.05f && !navMeshAgent.pathPending)
         {
             // initiate next waypoint
             SetNextWaypoint();
@@ -67,9 +68,12 @@ public class Level1NPCController : MonoBehaviour
                 helpingPlayer = true;
                 // set speed, so can walk to new puzzle waypoint
                 navMeshAgent.speed = speedToPuzzle;
+                // increase animation speed
+                _animator.SetFloat("animSpeed", 2.0f);
                 break;
             case AIStateMachine.DefaultWaypoint:
                 doneTalking = false;
+                _animator.SetFloat("animSpeed", 1.0f);
                 _playerController.StartMovement();
                 // transition to talking (dialogue) if player has interacted with NPC
                 if (helpingPlayer)
@@ -79,6 +83,7 @@ public class Level1NPCController : MonoBehaviour
                 break;
             case AIStateMachine.TalkingToPlayer:
                 _playerController.StopMovement();
+                _animator.SetFloat("animSpeed", 1.0f);
                 helpingPlayer = true;
                 navMeshAgent.ResetPath();
                 navMeshAgent.speed = 0f;
@@ -89,6 +94,7 @@ public class Level1NPCController : MonoBehaviour
                 }
                 break;
             case AIStateMachine.ExplainingToPlayer:
+                _animator.SetFloat("animSpeed", 1.0f);
                 _playerController.StopMovement();
                 helpingPlayer = true;
                 navMeshAgent.speed = 0f;

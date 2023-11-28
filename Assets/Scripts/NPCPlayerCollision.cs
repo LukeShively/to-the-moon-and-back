@@ -24,7 +24,7 @@ public class NPCPlayerCollision : MonoBehaviour
             } 
             // if currently in the state where moved to new puzzle waypoint (and the path is over - meaning the walk is complete)
             if (_level1NpcController.state == Level1NPCController.AIStateMachine.PuzzleWaypoint 
-                && (_level1NpcController.navMeshAgent.remainingDistance <= 0 && !_level1NpcController.navMeshAgent.pathPending))
+                && (_level1NpcController.navMeshAgent.remainingDistance <= 0.1 && !_level1NpcController.navMeshAgent.pathPending))
             {
                 _level1NpcController.TriggerPlayerExplainingDialogue();
             }
