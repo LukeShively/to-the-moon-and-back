@@ -18,7 +18,16 @@ public class PuzzlePlateManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _puzzleManager.TriggerPlate(plateNumber);
+            _puzzleManager.PlayPlateSound(plateNumber);
             gameObject.SetActive(false);
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _puzzleManager.PlayPlateSound(plateNumber);
         }
     }
 }

@@ -23,6 +23,13 @@ public class PuzzleManager : MonoBehaviour
 
     public void TriggerPlate(int plateNumber)
     {
+        Debug.Log("Stepped on plate " + plateNumber);
+        _platesActivated[_currentPlate] = plateNumber;
+        _currentPlate++;
+    }
+
+    public void PlayPlateSound(int plateNumber)
+    {
         switch (plateNumber)
         {
             case 1:
@@ -40,9 +47,6 @@ public class PuzzleManager : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log("Stepped on plate " + plateNumber);
-        _platesActivated[_currentPlate] = plateNumber;
-        _currentPlate++;
     }
 
     private void Update()

@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     private bool _isOnLevel3Ground;
     [SerializeField] private GameObject level1HelpHUD;
     [SerializeField] private GameObject level2HelpHUD;
+
+    private float airTime;
     
     void Start()
     {
@@ -77,8 +79,15 @@ public class PlayerController : MonoBehaviour
             _currentDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
             // use Physics to check for grounded (detection object under player)
             _isGrounded = Physics.CheckSphere(groundCheck.position, _groundCheckRadius, groundLayerMask);
-            if (_isGrounded) {
+            if (_isGrounded)
+            {
+                airTime = 0f;
                 _groundedOverride = false;
+            }
+            else
+            {
+                // track total time in air
+                airTime += Time.deltaTime;
             }
 
             if (Input.GetKeyDown(KeyCode.Space) && (_isGrounded || _groundedOverride))
@@ -90,7 +99,6 @@ public class PlayerController : MonoBehaviour
                     _rigidbody.velocity = new Vector3(0f,0f,0f);
                     Debug.Log("You shouldn't see me!");
                     _rigidbody.AddForce(new Vector3(currVel.x, 8, currVel.z), ForceMode.VelocityChange);
-                   
                 } else {
                     _rigidbody.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
                 }
@@ -128,6 +136,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         _animator.SetBool("isRunning", _isRunning);
+        _animator.SetBool("isJumping", !_isGrounded);
+        if (airTime >= 0.1f)
+        {
+            // transition to the air born animation state if been in the air for 1.5 seconds or longer
+            _animator.SetBool("isAirborn", true);
+        }
+        else
+        {
+            _animator.SetBool("isAirborn", false);
+        }
         if (_movementEnabled)
         {
             _rigidbody.isKinematic = false;
