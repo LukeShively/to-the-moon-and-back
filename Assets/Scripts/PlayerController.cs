@@ -225,6 +225,7 @@ public class PlayerController : MonoBehaviour
             // launch the player!
             _audioManager.PlayBouncePad();
             Debug.Log("Up you go!");
+            _rigidbody.velocity = Vector3.zero;
             _rigidbody.AddForce(new Vector3(0f, jumpPadForce, 0f), ForceMode.Impulse);
             if (coins != 0)
             {
