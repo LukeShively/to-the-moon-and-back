@@ -1200,8 +1200,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hint: Talk to the floating Pink Fairy and complete her mission, then talk
-    to her again.'
+  m_text: 'Hint: Talk to the Small Dragon and complete its mission, then talk to
+    it again.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1548,15 +1548,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1443098454}
     - target: {fileID: 1031057290977317523, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: 'Small Dragon: Well, what do we have here? I haven''t seen a human out
+        here in ages!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031057290977317523, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
       propertyPath: dialogueLines.Array.data[3]
-      value: 'Fairy: Hmm... I can send you there, but you''ll need to pay the toll.
-        Bring me five coins, I''ll get you there happily!'
+      value: 'Small Dragon: Hmm... I can send you there, but you''ll need to pay
+        the toll. Bring me five coins, I''ll get you there happily!'
       objectReference: {fileID: 0}
     - target: {fileID: 1031057290977317523, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
       propertyPath: dialogueLines.Array.data[4]
-      value: 'Fairy: Oh, and around here, you''ll also find that touching these blue
-        cubes will make you feel light as a feather. It''ll even let humans jump
-        on air! If you can''t find your way up, try grabbing some.'
+      value: 'Small Dragon: Oh, and around here, you''ll also find that touching
+        these blue cubes will make you feel light as a feather. It''ll even let humans
+        jump on air! If you can''t find your way up, try grabbing some.'
       objectReference: {fileID: 0}
     - target: {fileID: 1031057290977317548, guid: 0e3aa69b940a55f4988ddbcb93b74a11, type: 3}
       propertyPath: m_Pivot.x
@@ -5105,8 +5110,8 @@ PrefabInstance:
       objectReference: {fileID: 1443098454}
     - target: {fileID: 390195510479670040, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
       propertyPath: dialogueLines.Array.data[1]
-      value: 'Fairy: Right then, you''ll find the path to the moon amongst the highest
-        of the clouds. May you find your journey''s end safely, traveler.'
+      value: 'Small Dragon: Right then, you''ll find the path to the moon amongst
+        the highest of the clouds. May you find your journey''s end safely, traveler.'
       objectReference: {fileID: 0}
     - target: {fileID: 390195510479670041, guid: c8bf5518fa9f9054fbbd41d1b391310d, type: 3}
       propertyPath: m_Name
