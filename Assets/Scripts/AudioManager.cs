@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource plate4Sound;
     [SerializeField] private AudioSource level1KeyPickupSound;
     [SerializeField] private AudioSource bouncePadSound;
+    [SerializeField] private AudioSource memorySound;
 
     public void PlayPlate1()
     {
@@ -40,5 +41,9 @@ public class AudioManager : MonoBehaviour
     public void PlayBouncePad()
     {
         bouncePadSound.Play();
+    }
+    public void PlayMemory()
+    {
+        memorySound.Play();
     }
 }
