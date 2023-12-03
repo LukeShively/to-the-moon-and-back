@@ -190,6 +190,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Memory"))
         {
             Debug.Log("Collected a memory");
+            _audioManager.PlayMemory();
             // disable memory upon collection
             other.gameObject.SetActive(false);
             // update memory count
